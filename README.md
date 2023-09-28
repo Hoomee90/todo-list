@@ -63,3 +63,23 @@ let list = new ToDoList();
 list.addItem(item);
 list.completeItem(1);
 Expected Output: true;
+
+Describe: findItem() and clearItem()
+
+Test: "It should return false if the input is not the position of a list item"
+Code:
+let item = new ListItem("TODO");
+let list = new ToDoList();
+list.findItem(2);
+Expected Output: false;
+list.clearItem(2)
+Expected Output: false;
+
+Test: "It should return the list item, or delete the list item and return true"
+Code:
+let item = new ListItem("TODO");
+let list = new ToDoList();
+list.findItem(1);
+Expected Output: ListItem {description: 'TODO', done: false, position: 1};
+list.clearItem(1)
+Expected Output: true;

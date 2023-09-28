@@ -13,12 +13,24 @@ class ToDoList {
     this.currentPosition += 1;
     return this.currentPosition;
   }
-  completeItem(number) {
-    let itemToComplete = this.items[number];
-    if (itemToComplete !== undefined) {
-      return itemToComplete.complete();
+  completeItem(position) {
+    if (this.items[position] !== undefined) {
+      return this.items[position].complete();
     }
     return false;
+  }
+  findItem(position) {
+    if (this.items[position] !== undefined) {
+      return this.items[position];
+    }
+    return false;
+  }
+  clearItem(position) {
+    if (this.items[position] === undefined) {
+      return false;
+    }
+    delete this.items[position];
+    return true;
   }
 }
 
