@@ -6,7 +6,12 @@ class ToDoList {
     this.currentPosition = 0;
   }
   addItem(item) {
-    this.items[item.description] = item;
+    item.position = this.assignPosition();
+    this.items[item.position] = item;
+  }
+  assignPosition() {
+    this.currentPosition += 1;
+    return this.currentPosition;
   }
 }
 

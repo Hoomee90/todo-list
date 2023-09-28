@@ -37,4 +37,11 @@ Code:
 let item = new ListItem("TODO");
 let list = new ToDoList();
 list.addItem(item);
-Expected Output: null
+Expected Output: ToDoList(items{"TODO": ListItem})
+
+Test "It should utilize a new assignPosition function to give a new number as the keys"
+Code:
+let item = new ListItem("TODO");
+let list = new ToDoList();
+list.addItem(item);
+Expected Output: ToDoList(items{1: ListItem})
