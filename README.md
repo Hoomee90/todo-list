@@ -37,6 +37,7 @@ Code:
 let item = new ListItem("TODO");
 let list = new ToDoList();
 list.addItem(item);
+list;
 Expected Output: ToDoList(items{"TODO": ListItem})
 
 Test "It should utilize a new assignPosition function to give a new number as the keys"
@@ -44,7 +45,17 @@ Code:
 let item = new ListItem("TODO");
 let list = new ToDoList();
 list.addItem(item);
+list;
 Expected Output: ToDoList(items{1: ListItem})
+
+Test "It accept any number of items as input"
+Code:
+let item = new ListItem("TODO");
+let item2 = new ListItem("todo");
+let list = new ToDoList();
+list.addItem(item, item2);
+list;
+Expected Output: ToDoList(items: {...})
 
 Describe: completeItem()
 

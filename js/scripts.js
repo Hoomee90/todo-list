@@ -5,9 +5,11 @@ class ToDoList {
     this.items = {};
     this.currentPosition = 0;
   }
-  addItem(item) {
-    item.position = this.assignPosition();
-    this.items[item.position] = item;
+  addItem(...allItems) {
+    allItems.forEach(item => {
+      item.position = this.assignPosition();
+      this.items[item.position] = item;
+    });
   }
   assignPosition() {
     this.currentPosition += 1;
@@ -30,6 +32,9 @@ class ToDoList {
       return false;
     }
     delete this.items[position];
+    for (const item of this.items.slice(-position)) {
+      console.log(item);
+    }
     return true;
   }
 }
