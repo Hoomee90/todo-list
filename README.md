@@ -45,3 +45,21 @@ let item = new ListItem("TODO");
 let list = new ToDoList();
 list.addItem(item);
 Expected Output: ToDoList(items{1: ListItem})
+
+Describe: completeItem()
+
+Test: "It should return false if the input is not the position of a list item or that item's done value is already true"
+Code:
+let item = new ListItem("TODO");
+let list = new ToDoList();
+list.addItem(item);
+list.completeItem(2);
+Expected Output: false
+
+Test: "It should return true and change the ListItem at the position of the input's done value to true"
+Code:
+let item = new ListItem("TODO");
+let list = new ToDoList();
+list.addItem(item);
+list.completeItem(1);
+Expected Output: true;
