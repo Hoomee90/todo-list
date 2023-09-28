@@ -5,6 +5,9 @@ class ToDoList {
     this.items = {};
     this.currentPosition = 0;
   }
+  addItem(item) {
+    this.items[item.description] = item;
+  }
 }
 
 class ListItem {
