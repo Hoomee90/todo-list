@@ -28,6 +28,10 @@ class ToDoList {
     }
     return false;
   }
+  clear() {
+    this.items = {};
+    this.nextPosition = 1;
+  }
 }
 
 class ListItem {
