@@ -1,8 +1,8 @@
-# 
+# ToDo List Maker
 
 #### By **Samantha Callie**
 
-#### 
+#### Make and call on the wonderful ToDoList Object
 
 ## Technologies Used
 
@@ -11,6 +11,7 @@
 
 ## Description
 
+This site is a blank page, because I didn't have the time nor patience to build a UI. Using the console however, users can create and call the methods of the ToDoList Object, to make their own lists.
 
 ## Setup/Installation Requirements
 
