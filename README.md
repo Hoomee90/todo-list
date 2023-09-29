@@ -95,3 +95,12 @@ list.add("TODO")
 list.clear()
 list
 Expected Output: ToDoList: {items: {}, nextPosition: 1};
+
+Describe reorderPositions()
+Test: It should reorder all the keys of all items back into sequential order
+Code:
+let list = new ToDoList() ;
+list.add("todo","TODO","toDO","tOdO");
+list.remove(3);
+list.items;
+Expected Output: {1: ListItem, 2: ListItem, 3: ListItem};

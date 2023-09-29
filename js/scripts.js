@@ -18,9 +18,23 @@ class ToDoList {
   remove(position) {
     if (this.items[position]) {
       delete this.items[position];
+      this.nextPosition--;
+      this.reorderPositions()
       return true;
     }
     return false;
+  }
+  reorderPositions() {
+    let newPosition = 1;
+    const sortedKeys = Object.keys(this.items).sort((a, b) => parseInt(a) - parseInt(b));
+    for (let key of sortedKeys) {
+      if (parseInt(key) !== newPosition) {
+        this.items[newPosition] = this.items[key];
+        this.items[newPosition].position = newPosition
+        delete this.items[key];
+      }
+      newPosition++;
+    }
   }
   complete(position) {
     if (this.items[position]) {
