@@ -3,45 +3,36 @@
 class ToDoList {
   constructor() {
     this.items = {};
-    this.currentPosition = 0;
+    this.nextPosition = 1;
   }
-  addItem(...allItems) {
-    allItems.forEach(item => {
-      item.position = this.assignPosition();
-      this.items[item.position] = item;
+  add(...allContent) {
+    allContent.forEach(itemContent => {
+      let item = new ListItem(itemContent);
+      item.position = this.nextPosition;
+
+      this.items[this.nextPosition] = item;
+      this.nextPosition += 1;
+      return item;
     });
   }
-  assignPosition() {
-    this.currentPosition += 1;
-    return this.currentPosition;
+  remove(position) {
+    if (this.items[position]) {
+      delete this.items[position];
+      return true;
+    }
+    return false;
   }
-  completeItem(position) {
-    if (this.items[position] !== undefined) {
+  complete(position) {
+    if (this.items[position]) {
       return this.items[position].complete();
     }
     return false;
   }
-  findItem(position) {
-    if (this.items[position] !== undefined) {
-      return this.items[position];
-    }
-    return false;
-  }
-  clearItem(position) {
-    if (this.items[position] === undefined) {
-      return false;
-    }
-    delete this.items[position];
-    for (const item of this.items.slice(-position)) {
-      console.log(item);
-    }
-    return true;
-  }
 }
 
 class ListItem {
-  constructor(desc) {
-    this.description = desc;
+  constructor(content) {
+    this.content = content;
     this.done = false;
   }
   complete() {
